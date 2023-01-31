@@ -24,7 +24,9 @@ from service_six_lesson import (
     get_posts_with_two_tags
 )
 
-TEST_DB_URL = "postgresql+psycopg2://postgres:123456@localhost:5432/blog"
+from settings import TEST_DB_URL
+
+
 TEST_USERNAME = "13-01-2023"
 TEST_TAG_1 = 'tag3333'
 TEST_POST = 'test_post'

@@ -19,11 +19,10 @@ from model_six_lesson import (
 )
 from datetime import datetime
 
-DB_URL = "postgresql+psycopg2://postgres:123456@localhost:5432/blog"
-DB_ECHO = False
+from settings import DB_URL
 
 
-engine = create_engine(url=DB_URL, echo=DB_ECHO)
+engine = create_engine(url=DB_URL)
 Base = declarative_base(engine)
 session_factory = sessionmaker(bind=engine)
 Session = scoped_session(session_factory)
@@ -154,12 +153,7 @@ def main():
         create_post(session, "post_caption", "test_post", 1,  ["111", "222"])
         session.commit()
 
-    """with session.begin():
-        posts = get_posts_with_two_tags(session, 1)
-        for item in posts:
-            print(type(item))
-        print(type(posts))"""
-       
+
   
 
 if __name__ == "__main__":
